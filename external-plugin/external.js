@@ -3,6 +3,24 @@
 // name field in our Plugin model.
 exo.api.definePlugin('External', {playerCompatible: true}, function(registrar) {
 
+  registrar.defineCommand({
+    name: 'cloneScene',
+    uiPlace: { menu: ['File'] },
+    uiState: { label: 'Clone 2', category: "FileModify" },
+    linkTarget: '_blank',
+    link: '/view/',
+    linkRel: 'noreferrer',
+
+    uiUpdate: function(ctx, state) {
+      this.set('link', '/scenes/' + ctx.editor.scene.id + '/clone');
+    },
+
+    execute: function(ctx, options) {
+      this.set('link', '/scenes/' + ctx.editor.scene.id + '/clone');
+    }
+  });
+
+
 var FieldsControl = Backbone.View.extend({
   initialize: function() {
     this.ctx = this.model.getCtx();
