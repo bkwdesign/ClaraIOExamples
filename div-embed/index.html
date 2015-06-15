@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Div Embed Player Loader</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <style>
+            body {
+                padding-top: 0;
+                padding-bottom: 20px;
+            }
+            .jumbotron {
+              padding: 12px 0;
+            }
+            h1 a {
+              color: #000;
+            }
+            ul.controls {
+              padding-top: 12px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
+
+        <script src="js/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1><a href="/">Dev Div Embed</a></h1>
+        <p style="display: none"><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+      </div>
+    </div>
+
+    <div class="container app-container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div id="clara-embed">
+            <p class="message bg-info">Enter a sceneId to load</p>
+          </div>
+          <hr />
+          <ul class="list-unstyled list-inline controls">
+            <li class="btn1" style="display: none"><button class="btn btn1">Button 1</button></li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <form class="embed" role="form">
+            <div class="form-group">
+              <label for="sceneId">Scene</label>
+              <input type="text" name="sceneId" class="form-control" id="sceneId" placeholder="Enter scene id">
+            </div>
+            <fieldset>
+              <legend>Player options</legend>
+
+              <div class="form-group">
+                <label for="what">WebGL or Render</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="what" value="webgl" checked>
+                    WebGL
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="what" value="render">
+                    Render
+                  </label>
+                </div>
+              </div>
+              <label for="clickToEnable" class="checkbox"><input type="checkbox" name="clickToEnable" checked="checked"> Click to Enable</label>
+              <label for="header" class="checkbox"><input type="checkbox" name="header" checked="checked">Show Header</label>
+              <label for="hideLogo" class="checkbox"><input type="checkbox" name="hideLogo">Hide Logo</label>
+              <label for="tools" class="checkbox"><input type="checkbox" name="tools" checked="checked">Show Tools</label>
+              <label for="timeline" class="checkbox"><input type="checkbox" name="timeline">Show Timeline</label>
+              <label for="streamChanges" class="checkbox"><input type="checkbox" name="streamChanges">Stream Changes</label>
+              <div class="form-group">
+                <label for="bgColor">Background Color</label>
+                <input type="text" name="bgColor" class="form-control" id="bgColor" placeholder="#fff">
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Loading options</legend>
+              <label for="loadPlugins" class="checkbox"><input type="checkbox" name="loadPlugins">Load Plugins</label>
+              <div class="form-group">
+                <label for="urlRoot" class="text">Load from <input type="text" name="urlRoot" id="urlRoot" /></label>
+              </div>
+              <label for="minimized" class="checkbox"><input type="checkbox" name="minimized"> minimized (aka production)</label>
+            </fieldset>
+            <button type="submit" class="btn btn-primary btn-lg">Load Player</button>
+          </form>
+
+          <h3>Login as:</h3>
+          <form class="login">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login User</button>
+            <button class="btn logout">Logout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m}; return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement", i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g, String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&q()})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+
+var addVar = function(vars, key, val) {
+  vars.push(key);
+  vars[key] = val;
+}
+
+// http://stackoverflow.com/questions/7731778/jquery-get-query-string-parameters
+var getUrlVars = function(href) {
+  var vars = [], hash, result;
+  if (!href) href = window.location.href;
+  var hashes = href.slice(href.indexOf('?') + 1).split('&');
+  for (var i = 0; i < hashes.length; i++) {
+    hash = hashes[i].split('=');
+    result = decodeURIComponent(hash[1]);
+    if (result === 'false') result = false;
+    if (result === 'true') result = true;
+    addVar(vars, hash[0], result);
+  }
+  return vars;
+};
+
+var varsToUrl = function(vars) {
+  var s = '';
+  for (var i=0; i<vars.length; i++) {
+    s += '&' + vars[i] + '=' + encodeURIComponent(vars[vars[i]]);
+  }
+  return s.slice(1);
+};
+
+var varsToForm = function(vars) {
+  if (vars.sceneId && vars.sceneId !== 'null') $('input[name=sceneId]').val(vars.sceneId);
+  $('input[name=bgColor]').val(vars.bgColor);
+  $('input[name=what]').prop('checked', false);
+  $('input[name=what][value='+vars.what+']').prop('checked', true);
+  $('input[name=clickToEnable]').prop('checked', vars.clickToEnable === true);
+  $('input[name=header]').prop('checked', vars.header === true);
+  $('input[name=minimized]').prop('checked', vars.minimized === true);
+  $('input[name=urlRoot]').val(vars.urlRoot);
+  $('input[name=hideLogo]').prop('checked', vars.hideLogo === true);
+  $('input[name=tools]').prop('checked', vars.tools !== false);
+  $('input[name=timeline]').prop('checked', vars.timeline);
+  $('input[name=streamChanges]').prop('checked', vars.streamChanges === true);
+  $('input[name=loadPlugins]').prop('checked', vars.loadPlugins === true);
+  //addVar(vars, 'source', $('input[name=source]:checked').val());
+};
+
+var formToVars = function() {
+  var vars = [];
+  var sceneId = $('input[name=sceneId]').val();
+  if (sceneId) addVar(vars, 'sceneId', sceneId);
+  addVar(vars, 'urlRoot', $('input[name=urlRoot]').val());
+  addVar(vars, 'what', $('input[name=what]:checked').val());
+  addVar(vars, 'bgColor', $('input[name=bgColor]').val() || '#fff');
+  addVar(vars, 'clickToEnable', $('input[name=clickToEnable]').prop('checked'));
+  addVar(vars, 'header', $('input[name=header]').prop('checked'));
+  addVar(vars, 'minimized', $('input[name=minimized]').prop('checked'));
+  addVar(vars, 'hideLogo', $('input[name=hideLogo]').prop('checked'));
+  addVar(vars, 'tools', $('input[name=tools]').prop('checked'));
+  addVar(vars, 'timeline', $('input[name=timeline]').prop('checked'));
+  addVar(vars, 'streamChanges', $('input[name=streamChanges]').prop('checked'));
+  addVar(vars, 'loadPlugins', $('input[name=loadPlugins]').prop('checked'));
+  return vars;
+};
+
+var load_OneScript = function(vars) {
+  var sceneId = vars.sceneId;
+  var embedUrl = vars.urlRoot +
+    (vars.minimized ? '/js/clara-embed.min.js' : '/js/clara-embed.js');
+  var cssUrl = vars.urlRoot + '/css/clara-embed.css';
+
+  if (sceneId && sceneId !== 'null') {
+    window.clara = lightningjs.require("clara", embedUrl);
+    (function() { var l = document.createElement('link'); l.href = cssUrl; l.rel = "stylesheet"; document.head.appendChild(l); })();
+    if (typeof jQuery !== 'undefined') jQuery.fn.clara = function(c,o) { return clara('jq',this,c,o); };
+    $('#clara-embed').clara({id: sceneId, header: vars.header, tools: vars.tools,
+      streamChanges: vars.streamChanges, loadPlugins: vars.loadPlugins,
+      timeline: vars.timeline, hideLogo: vars.hideLogo,
+      //sceneJSON: sceneJSONPromise,
+      //loadingProgress: function(progress) { console.log('received progress indicator', progress); }
+    });
+  } else {
+    $('.message').text('Enter a sceneId to load player');
+  }
+};
+
+var loadScript = function(src, callback) {
+  var script = document.createElement('script');
+  script.onload = callback;
+  script.src = src;
+  script.async = false;
+  document.head.appendChild(script);
+};
+
+var load_MultiScript = function(vars) {
+  var sceneId = vars.sceneId;
+
+  if (sceneId && sceneId !== 'null') {
+    //var sceneJSONPromise = fetch(vars.urlRoot + '/api/scenes/' + sceneId);
+    (function() { var l = document.createElement('link'); l.href = claraDivEmbedDependencies.css; l.rel = "stylesheet"; document.head.appendChild(l); })();
+
+    var onload =  function() {
+      var api = divEmbed(window, document);
+      if (typeof jQuery !== 'undefined') jQuery.fn.clara = function(c,o) { return api.jq(this,c,o); };
+      $('#clara-embed').clara({id: sceneId, header: vars.header, tools: vars.tools,
+        streamChanges: vars.streamChanges, loadPlugins: vars.loadPlugins,
+        timeline: vars.timeline, hideLogo: vars.hideLogo
+        //, sceneJSON: sceneJSONPromise
+      });
+    };
+
+    claraDivEmbedDependencies.js.slice(0,-1).forEach(loadScript);
+    loadScript(claraDivEmbedDependencies.js.slice(-1)[0], onload);
+  } else {
+    $('.message').text('Enter a sceneId to load player');
+  }
+};
+
+var load = load_MultiScript;
+
+var loadRender = function(vars) {
+  var embedUrl = vars.urlRoot;
+  embedUrl += '/embed/'+vars.sceneId+'?renderer=vray&location=server';
+  embedUrl += '&clickToEnable='+vars.clickToEnable;
+  embedUrl += '&header='+vars.header;
+  embedUrl += '&hideLogo='+vars.hideLogo;
+  embedUrl += '&tools='+vars.tools;
+  $('#clara-embed').html('<iframe src="'+embedUrl+'" width="555" height="500"></iframe>');
+};
+
+var defaults = {
+  what: 'webgl',
+  clickToEnable: false,
+  header: true,
+  hideLogo: false,
+  tools: true,
+  timeline: true,
+  streamChanges: false,
+  loadPlugins: false,
+  urlRoot: 'http://192.168.33.33'
+};
+
+var init = function(vars) {
+  for (key in defaults) {
+    if (vars[key] === undefined) {
+      vars[key] = defaults[key];
+    }
+  }
+  if (vars.what === 'render') {
+    loadRender(vars);
+  } else {
+    load(vars);
+  }
+  varsToForm(vars);
+};
+
+$('form.embed').on('submit', function(e) {
+  e.preventDefault();
+  var vars = formToVars();
+  //load(vars);
+  window.location.replace('/index.html?' + varsToUrl(vars));
+});
+
+$('form.login').on('submit', function(e) {
+  e.preventDefault();
+  var vars = formToVars();
+
+  $.ajax({
+    url: vars.urlRoot + '/api/session',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({username: $('input[name=username]').val(), password: $('input[name=password]').val()}),
+    dataType: 'json',
+    success: function(res, xhr) {
+        console.log('logged in?', res, xhr);
+    },
+    xhrFields: {withCredentials: true}
+  }).done(function() {
+    console.log('done');
+  }).fail(function(res) {
+    console.log('Failed login', res);
+  });
+});
+
+$('button.logout').click(function(e) {
+  e.preventDefault();
+  var vars = formToVars();
+  console.log('logging out');
+  $.ajax({
+    url: vars.urlRoot + '/api/session',
+    type: 'DELETE',
+    success: function() {
+      console.log('logged out');
+    },
+    xhrFields: {withCredentials: true}
+  });
+});
+
+var urlVars = getUrlVars();
+if (urlVars.urlRoot) {
+  loadScript(urlVars.urlRoot + '/api/utils/div_embed_dependencies.js', function() {
+    init(urlVars);
+  });
+} else {
+  init(urlVars);
+}
+
+
+</script>
+<script src="js/extra.js"></script>
+
+    </body>
+</html>
